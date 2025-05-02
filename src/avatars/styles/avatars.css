@@ -1,1 +1,74 @@
 /* 여기에 스타일을 구현해 주세요 */
+
+body {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.avatarBox {
+  padding: 100px;
+  display: grid;
+  background-color: #fff;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.avatar {
+  position: relative;
+}
+
+img {
+  width: 64px;
+  height: 64px;
+  padding: 20px;
+  border-radius: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  bottom: 33px;
+  right: 26px;
+}
+
+.avatar::after {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 23px;
+  right: 15px;
+  border: 1px solid #ffc;
+  border-radius: 100%;
+  background-color: #dbdbdb;
+}
+
+.avatar.status-on::after {
+  background-color: #4cfe88;
+}
+
+.avatarBox p {
+  grid-column: 1 / -1;
+  text-align: right;
+  margin: 0;
+  padding: 0 15px 0 0;
+}
+
+.avatarBox p a {
+  text-decoration: none;
+  color: #555;
+}
+
+.avatarBox p a:hover {
+  color: #007bff;
+  border-bottom: 1px solid #007bff;
+}
