@@ -1,0 +1,208 @@
+/* CSS를 활용하여 레이아웃 및 스타일링을 완성해주세요 */
+:root {
+  --text-small: 0.875rem;
+  --text-normal: 1rem;
+  --black-color: #121212;
+  --green-color: #03cf5d;
+  --gray-color: #dadada;
+  --white-color: #fff;
+  --warning-color: #ff1414;
+  --border-style: #24388d;
+  --input-focus: #e9f0fd;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--black-color);
+  font-size: var(--text-normal);
+}
+
+body {
+  margin: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.login-logo {
+  text-align: center;
+  margin: 3.125rem 0;
+}
+
+.login-container {
+  width: 500px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.login-form {
+  width: 100%;
+
+  .form-input {
+    margin-bottom: 0.625rem;
+
+    input {
+      width: 100%;
+      height: 45px;
+      outline: none;
+      border: 1px solid var(--gray-color);
+      padding: 0 1.25rem;
+      font-size: var(--text-small);
+      background: var(--white-color);
+
+      &:focus {
+        border: 1px solid var(--green-color);
+        background-color: var(--input-focus);
+      }
+    }
+
+    p {
+      margin: 0 0 0 0.625rem;
+      font-size: var(--text-small);
+      color: var(--warning-color);
+      display: none;
+    }
+
+    input:invalid:focus ~ p,
+    input:invalid:focus-visible {
+      display: block;
+    }
+  }
+
+  button {
+    width: 100%;
+    height: 45px;
+    color: var(--white-color);
+    background-color: var(--green-color);
+    padding: 0 1.25rem;
+    margin: 0.625rem 0 0.625rem 0;
+    border: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+ul {
+  display: flow-root;
+  color: var(--black-color);
+
+  li label {
+    cursor: pointer;
+  }
+
+  .status-group {
+    position: relative;
+    float: left;
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+
+    .on-img {
+      display: none;
+    }
+
+    span {
+      margin-left: 1.8125rem;
+    }
+  }
+
+  input[type='checkbox'] {
+    &:checked ~ label .on-img {
+      display: inline;
+    }
+
+    &:checked ~ label .off-img {
+      display: none;
+    }
+
+    &:focus-visible ~ label img {
+      outline: 2px solid var(--border-style);
+      border-radius: 3px;
+    }
+  }
+
+  .security-group {
+    float: right;
+    position: relative;
+
+    a {
+      text-decoration: none;
+
+      &:focus-visible {
+        outline: 2px solid var(--border-style);
+        border-radius: 3px;
+      }
+    }
+
+    button {
+      font-weight: 600;
+    }
+
+    .off-button {
+      display: inline;
+      color: var(--gray-color);
+    }
+    .on-button {
+      display: none;
+      color: var(--green-color);
+    }
+
+    input[type='checkbox'] {
+      &:checked ~ label .on-button {
+        display: inline;
+      }
+
+      &:checked ~ label .off-button {
+        display: none;
+      }
+
+      &:focus-visible ~ label span {
+        outline: 2px solid var(--border-style);
+        border-radius: 3px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .status-group {
+      float: right;
+    }
+
+    .security-group {
+      display: none;
+    }
+  }
+}
