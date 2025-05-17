@@ -1,0 +1,85 @@
+@import './reset.css';
+@import './theme.css';
+@import './base.css';
+
+.card {
+  color: var(--white);
+  block-size: var(--size);
+  padding-block-start: var(--large-spacing);
+  background-image: url(../products/ipad_pro_wide.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media screen and (min-width: 1024px) {
+    padding-block-start: var(--extra-large-spacing);
+  }
+}
+
+.card-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--small-spacing);
+
+  h2 {
+    font-size: var(--large-text);
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: var(--base-text);
+  }
+
+  p {
+    font-size: var(--small-text);
+    color: var(--gray);
+  }
+
+  .button-group {
+    display: flex;
+
+    a {
+      font-size: var(--xx-small-text);
+      border: 1px solid var(--blue-200);
+      border-radius: 50px;
+      padding: var(--x-small-spacing) var(--small-spacing);
+      background-color: var(--blue-300);
+      font-weight: 500;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      &:last-child {
+        margin-inline-start: var(--base-spacing);
+        background-color: transparent;
+        opacity: 1;
+
+        &:hover {
+          background-color: var(--blue-300);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    h2 {
+      font-size: var(--extra-large-text);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: var(--medium-text);
+    }
+
+    .button-group {
+      display: flex;
+
+      a {
+        font-size: var(--x-small-text);
+      }
+    }
+  }
+}

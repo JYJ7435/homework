@@ -1,0 +1,135 @@
+@import './card-component.css';
+
+/* NavBar */
+.header {
+  position: sticky;
+  top: 0;
+  inline-size: 100%;
+  block-size: 44px;
+  background-color: var(--white);
+  font-size: 1.0625rem;
+
+  .header-nav {
+    height: 100%;
+  }
+
+  .header-menu {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 3.125rem;
+
+    & li:hover {
+      color: var(--blue-200);
+    }
+
+    .apple-logo:hover {
+      fill: var(--blue-200);
+    }
+
+    .logo {
+      width: 20px;
+      aspect-ratio: 1 / 1;
+      text-align: center;
+      align-content: center;
+    }
+  }
+
+  .header-menu a:not(:has(.logo)) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .header-menu {
+      width: 1000px;
+      margin: 0 auto;
+    }
+    .header-menu a:not(:has(.logo)) {
+      display: flex;
+    }
+  }
+}
+
+/* 카드 레이아웃 */
+
+.card-container {
+  display: grid;
+  gap: 0.75rem;
+
+  .card:nth-child(1) {
+    background-image: image-set(url('../products/ipad_pro_wide.jpeg') 1x, url('../products/ipad_pro_wide_2x.jpeg') 2x);
+  }
+
+  .card:nth-child(2) {
+    background-image: image-set(url('../products/ipad_air_wide.jpeg') 1x, url('../products/ipad_air_wide_2x.jpeg') 2x);
+  }
+
+  .card:nth-child(3) {
+    background-image: image-set(url('../products/iphone15_pro_wide.jpeg') 1x, url('../products/iphone15_pro_wide_2x.jpeg') 2x);
+  }
+
+  .card:nth-child(4) {
+    background-image: image-set(url('../products/iphone15.jpeg') 1x, url('../products/iphone15_2x.jpeg') 2x);
+  }
+
+  .card:nth-child(5) {
+    background-image: image-set(url('../products/apple_watch.jpeg') 1x, url('../products/apple_watch_2x.jpeg') 2x);
+  }
+
+  .card:nth-child(6) {
+    background-image: image-set(url('../products/macbook_air.jpeg') 1x, url('../products/macbook_air_2x.jpeg') 2x);
+  }
+
+  .card:nth-child(7) {
+    background-image: image-set(url('../products/airpods_pro.jpeg') 1x, url('../products/airpods_pro_2x.jpeg') 2x);
+  }
+
+  .card:nth-child(even) {
+    h2,
+    h3 {
+      color: var(--black);
+    }
+    a {
+      border: 1px solid var(--black);
+      background-color: var(--black);
+
+      &:last-child {
+        background-color: transparent;
+        color: var(--black);
+
+        &:hover {
+          color: var(--white);
+          background-color: var(--black);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+
+    .card:nth-child(-n + 3) {
+      grid-column: span 2;
+    }
+  }
+}
+
+/* Footer */
+
+.footer {
+  background-color: rgb(245, 245, 247);
+  color: rgba(0, 0, 0, 0.56);
+  font-size: var(--xx-small-text);
+  margin-block-start: 0.75rem;
+
+  .wrapper {
+    inline-size: 80%;
+    margin: 0 auto;
+    padding-block: 20px;
+
+    p:nth-child(2) {
+      margin-block: 10px;
+    }
+  }
+}
